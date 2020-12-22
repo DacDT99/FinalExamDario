@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script type="text/javascript">
+function getXmlHttpRequestObject() {
+
+if (window.XMLHttpRequest) {
+		return new XMLHttpRequest();
+	}
+}	
+	var Req = getXmlHttpRequestObject();
+
+	Req.open("GET", "Exam.txt", true);
+	Req.send();
+
+	Req.onreadystatechange = function() {
+	if (Req.readyState == 4 && Req.status==200) {
+		document.getElementById("result").innerHTML = Req.responseText;
+	}
+}
+</script>
+</head>
+<body>
+	
+	<strong><div id="result" >&nbsp;</div></strong>
+</body>
+</html>
